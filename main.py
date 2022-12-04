@@ -27,10 +27,10 @@ import psycopg2.extras
 DEFAULT_USER = "Giacomo Orsi"
 
 
-host = '35.241.240.106'
+host = HOST
 dbname = 'postgres'
 user = 'postgres'
-pwd = 'Lauzhack2022'
+pwd = PWD
 port = 5432
 conn = psycopg2.connect("host='{}' port={} dbname='{}' user={} password={}".format(host, port, dbname, user, pwd))
 
