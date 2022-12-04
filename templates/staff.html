@@ -63,12 +63,12 @@
             } else if ("{{row["status"]}}" == "completed") {
                 list = currentBoard.lists[3];
             }
-
+            
             var innerHTML = `<div class="card-title"><h4 class='uk-margin-remove'>{{row.title}}</h4>
                              <div><span uk-icon="tag"></span>{{ row.category }}</div></div>
                              <div><span uk-icon="location"> </span>{{row.room}}</div>`
             card = addCardTrelloFromName(list, "{{row["title"]}}", innerHTML, {{row.issue_id}});
-
+        
             {% endfor %}
         }
     </script>
