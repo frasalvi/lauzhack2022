@@ -85,13 +85,14 @@
             draw = false;
             {% endif %}
 
-
+            {% if row["longitude"] %}
             if (draw) {
                 var marker = L.marker([{{ row["latitude"] }}, {{ row["longitude"] }}], { icon: v_icon }).addTo(map);
             marker.bindPopup(`<h4 class='uk-margin-remove'>{{row.title}}</h4><br>
                               <div><span uk-icon="tag"></span>{{ row.category }}</div><br>
                               <a href='{{ url_for('visualizeIssue', issue_id=row["issue_id"]) }}' class='uk-button uk-button-text'>Open proposal</a>`);
                 }
+            {% endif %}
             {% endfor %}
 
 

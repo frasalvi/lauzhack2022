@@ -25,15 +25,13 @@ import psycopg2.extras
 # import pandas as pd
 
 DEFAULT_USER = "Giacomo Orsi"
-#conn = psycopg2.connect("host='{}' port={} dbname='{}' user={} password={}".format(host, port, dbname, user, pwd))
-#cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
 
 host = '35.241.240.106'
 dbname = 'postgres'
 user = 'postgres'
 pwd = 'Lauzhack2022'
 port = 5432
-sslmode = 'require'
 conn = psycopg2.connect("host='{}' port={} dbname='{}' user={} password={}".format(host, port, dbname, user, pwd))
 
 # Dictionary of EPFL buildings 
@@ -66,7 +64,8 @@ def feed():
 
     data = cursor.fetchall()
     cursor.close()
-    return render_template("feed.html", data=data)
+
+    return render_template("feed.html", data=data[::-1])
 
 @app.route("/newIssue")
 def newIssue():
@@ -77,10 +76,7 @@ def newIssue():
 @app.route("/newIssue", methods=['POST'])
 def newIssue2():
     DEFAULT_STATUS = 'received'
-    LATITUDE_LONGITURE_MAPPER = {
-        # TODO: Add more locations
-        "",
-    }
+
     # Get the data from the form
     title = request.form['title']
     description = request.form['description']
@@ -91,10 +87,12 @@ def newIssue2():
     # get the location
     location = buildings.get(room, (None, None))
 
+    default_date = "04/12/2022"
+
     # Insert the data into the database
-    sql = "INSERT INTO issue_db (title, description, room, solution, status, upvotes, has_upvoted, user_name, latitude, longitude) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+    sql = "INSERT INTO issue_db (title, description, room, solution, status, upvotes, has_upvoted, user_name, latitude, longitude, timestamp) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
     cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-    cursor.execute(sql, (title, description, room, solution, DEFAULT_STATUS, 0, False, DEFAULT_USER, location[0], location[1]))
+    cursor.execute(sql, (title, description, room, solution, DEFAULT_STATUS, 0, False, DEFAULT_USER, location[0], location[1], default_date))
     conn.commit()
 
     # get the issue id of the newly created issue
