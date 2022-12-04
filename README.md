@@ -1,6 +1,4 @@
-# polygreen - LauzHack 2022
-
-<!-- ![polygreen logo](logo.png "polygreen") -->
+<img src="img/polyimprove_logo.png" alt="drawing" width="300"  style="display: block; margin: 0 auto" >
 
 ## Description
 Whatever
@@ -15,5 +13,4 @@ It has to be accessed from the EPFL network.
 * Roberto Ceraolo
 * Jordi Cluet
 
-<img src="img/polyimprove_logo.png" alt="drawing" width="200">
-<img src="img/lauzhack_logo.svg" alt="drawing" width="200">
+<img src="img/lauzhack_logo.svg" alt="drawing" width="250"  style="display: block; margin: 0 auto" >
