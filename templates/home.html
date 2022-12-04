@@ -1,0 +1,46 @@
+
+<html>
+    <head>
+        <title>Home</title>
+        {% include 'template/head.html' %}
+    </head>
+    <body>
+        {% include 'template/body-header.html' %}
+
+<div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport" uk-height-viewport="offset-top: true">
+        <div>
+            <div class="uk-margin">
+                <a href="{{ url_for('newIssue') }}">
+                    <div class="uk-card uk-card-body uk-card-hover uk-card-default uk-text-center">
+                        <span uk-icon="icon:pencil; ratio:3"></span>
+                        <h2>Write a Green Proposal</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="uk-margin">
+                <a href="{{ url_for('feed') }}">
+                    <div class="uk-card uk-card-body uk-card-hover uk-card-default uk-text-center">
+                        <span uk-icon="icon:thumbnails; ratio:3"></span>
+                        <h2>Browse Green Proposals</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="uk-margin">
+                <a href="{{ url_for('statistics') }}">
+                    <div class="uk-card uk-card-body uk-card-hover uk-card-default uk-text-center">
+                        <span uk-icon="icon:database; ratio:3"></span>
+                        <h2>Statistics</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="uk-margin-large uk-text-center">
+                <a href="{{url_for('staff')}}" class="uk-button uk-button-secondary"><span uk-icon="lock"></span>&nbsp;&nbsp;&nbsp;Staff view for EPFL employees</a>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    {% include 'template/body-footer.html' %}
+</body>
+</html>
