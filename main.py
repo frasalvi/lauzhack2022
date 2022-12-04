@@ -11,6 +11,13 @@ http://10.90.38.15:5001
 
 
 """
+try:
+  import googleclouddebugger
+  googleclouddebugger.enable(
+    breakpoint_enable_canary=True
+  )
+except ImportError:
+  pass
 from flask import Flask, render_template, request, redirect, url_for 
 import psycopg2
 import psycopg2.extras
@@ -18,15 +25,16 @@ import psycopg2.extras
 # import pandas as pd
 
 DEFAULT_USER = "Giacomo Orsi"
+#conn = psycopg2.connect("host='{}' port={} dbname='{}' user={} password={}".format(host, port, dbname, user, pwd))
+#cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-host = '128.179.129.217'
+host = '35.241.240.106'
 dbname = 'postgres'
 user = 'postgres'
-pwd = 'lauz22'
+pwd = 'Lauzhack2022'
 port = 5432
 sslmode = 'require'
 conn = psycopg2.connect("host='{}' port={} dbname='{}' user={} password={}".format(host, port, dbname, user, pwd))
-#cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
 # Dictionary of EPFL buildings 
 buildings = {
@@ -203,5 +211,5 @@ def map():
     return render_template("map.html", data=data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host="104.155.86.18")
 
