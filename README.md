@@ -1,5 +1,8 @@
 <img src="img/polyimprove_logo.png" alt="drawing" width="300"  style="display: block; margin: 0 auto" >
 
+## Elevator pitch
+We believe 12K brains can do better than 4. We built a collaborative platform in which the whole EPFL community is empowered to suggest improvements for the sustainability of the campus. Enjoy!
+
 ## Demo access
 Visit our [demo webpage](http://10.90.38.15:5001/) to try our project.
 It has to be accessed from the EPFL network.
