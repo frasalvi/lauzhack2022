@@ -5,7 +5,7 @@ We believe 12K brains can do better than 4. We built a collaborative platform in
 
 ## Demo access
 Visit our [demo webpage](http://10.90.38.15:5001/) to try our project.
-It has to be accessed from the EPFL network.
+It has to be accessed from the EPFL network. Otherwise, take a look at some screenshots of the app in our [Devpost](https://devpost.com/software/polyimprove) submission.
 
 ## Inspiration
 What's the biggest asset that EPFL has? People: students, faculty, PhDs, Staff. What do we want to solve? Reducing waste and making the campus more sustainable. 
@@ -33,4 +33,6 @@ However, the main challenge was to brainstorm on how to motivate the EPFL commun
 * Roberto Ceraolo
 * Jordi Cluet
 
-<img src="img/lauzhack_logo.svg" alt="drawing" width="250"  style="display: block; margin: 0 auto" >
+This project was part of Lauzhack2022.
+
+<img src="img/lauzhack_logo.svg" alt="drawing" width="250"   >
