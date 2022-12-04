@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>Browse</title>
+    {% include 'template/head.html' %}
+</head>
+
+<body>
+    {% include 'template/body-header.html' %}
+
+    <div uk-grid class="uk-margin">
+        <div class="uk-width-expand uk-text-left">
+            <div onclick="history.back()" class="uk-button uk-button backlink"><span uk-icon="arrow-left"></span> Back
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+    <div class="uk-card uk-margin uk-card-default uk-card-body">
+        {% if issueData.status == 'completed' %}
+        <div class="uk-card-badge uk-badge-success uk-label">Completed</div>
+        {% elif issueData.status == 'rejected' %}
+        <div class="uk-card-badge uk-badge-danger uk-label">Rejected</div>
+        {% elif issueData.status == 'pending' %}
+        <div class="uk-card-badge uk-badge-warning uk-label">Pending</div>
+        {% elif issueData.status == 'accepted' %}
+        <div class="uk-card-badge uk-badge-warning uk-label">Accepted</div>
+        {% endif %}
+
+        <div>
+            <h3 class="uk-margin-medium-top">{{issueData.title}}</h3>
+            <h4 class="uk-text-muted uk-margin-remove">{{issueData.user_name}}</h4>
+            <p class="uk-text-muted uk-margin-remove">Created on {{issueData.timestamp}}</p>
+        </div>
+        <div class="uk-grid uk-margin-small">
+            <div><span uk-icon="location"> </span>{{issueData.room}}</div>
+            <div><span uk-icon="tag"></span>{{issueData.category}}</div>
+           <!-- <div><span uk-icon="bookmark"></span>Hello</div> -->
+        </div>
+
+        <div class="uk-margin-small">
+            <p>{{issueData.description}}</p>
+        </div>
+        <div uk-grid>
+            <div class="uk-width-expand">
+                
+                <p class="uk-margin-remove">
+                    <!-- When a user clicks on this link, send POST request to update value in database asynchronously and increasethe number of likes-->
+                    
+                    <a 
+                    {% if issueData.has_upvoted %}
+                    class = "heart-fill" 
+                    {% else %}
+                    class = "" 
+                    {% endif %}
+                    href="{{ url_for('like', issue_id=issueData.issue_id) }}"><span uk-icon="heart"></span></a>
+                    {{issueData.upvotes}}</p>
+            </div>
+            <div class="uk-expand uk-text-right">
+                <a href="" class="uk-button uk-button-text">Comment</a>
+            </div>
+        </div>
+        
+    </div>
+
+        {% include 'template/body-footer.html' %}
+</body>
+
+</html>

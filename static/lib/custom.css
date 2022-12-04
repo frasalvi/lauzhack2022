@@ -1,0 +1,96 @@
+.uk-badge-success {
+    background-color: #32d296;
+}
+
+.uk-badge-danger {
+    background-color: #f0506e;
+}
+
+.heart-fill {
+    color: #ff0000;
+}
+
+.heart-fill .uk-icon[uk-icon="heart"] svg path {
+    fill: #ff0000;
+    }
+
+.uk-badge-warning {
+    background-color: #faa05a;
+}
+
+.uk-badge {
+    padding: 10px;
+}
+
+body {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+html {
+    background-color: #ffffff !important;
+}
+
+#map {
+    height: 500px;
+}
+
+.website-container, .header-container {
+    max-width: 400px !important;
+}
+
+.website-container {
+    background-color: #ededed;
+    padding: 40px 10px;
+    border-radius: 10px;    
+    min-height: 100%;
+}
+
+.backlink {
+    padding-left: 0px !important;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.legend {
+    text-align: left;
+    line-height: 18px;
+    color: #555;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.left {
+    float: left;
+    width: 100px;
+  }
+  .right {
+    overflow: auto;
+  }
+
+
+/* Hide the last child of trello-canvas-board */
+#trello-canvas-board > div:last-child {
+    display: none !important;
+}
+.list-cards > div:last-child {
+    display: none !important;
+}

@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>Home</title>
+    {% include 'template/head.html' %}
+</head>
+
+<body>
+    {% include 'template/body-header.html' %}
+    <div uk-grid class="uk-margin">
+        <div class="uk-width-expand uk-text-left">
+            <div onclick="history.back()" class="uk-button uk-button backlink"><span
+                uk-icon="arrow-left"></span> Back</div>
+            </div>
+    </div>
+
+<h1>Add a proposal</h1>
+    <div class="uk-card uk-card-default uk-card-body uk-card-small">
+        <form method="POST" id="form" action="{{ url_for('newIssue')}}">
+            <div class="uk-margin">
+
+                <label class="uk-h4">Title</label>
+                <input class="uk-input uk-form-large" name="title" required="" type="text">
+            </div>
+            <div class="uk-margin">
+                <label class="uk-h4">Description</label>
+                <textarea class="uk-input uk-form-large" name="description" required="" type="text"></textarea>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-h4">Proposed solution</label>
+                <textarea class="uk-input uk-form-large" name="solution" required="" type="text"></textarea>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-h4">Area / Room</label>
+                <select class="uk-select uk-form-large" name="room" required="">
+                    <option value="no-room">No room</option>
+                    {% for room in buildings %}
+                    <option value="{{room}}">{{room}}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-h4">Category</label>
+                <select class="uk-select uk-form-large" name="category" required="">
+                    <option value="Electrical">Facility</option>
+                    <option value="Food">Food</option>
+                    <option value="Energy">Energy</option>
+                    <option value="Water">Water</option>
+                </select>
+            </div>
+
+            <button class="uk-button uk-button-primary" type="submit" value="Insert">Insert</button>
+        </form>
+
+    </div>
+
+    {% include 'template/body-footer.html' %}
+</body>
+
+</html>

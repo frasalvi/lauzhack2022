@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>Browse</title>
+    {% include 'template/head.html' %}
+</head>
+
+<body>
+    {% include 'template/body-header.html' %}
+
+<div uk-grid class="uk-margin">
+    <div class="uk-width-expand uk-text-left">
+        <div onclick="history.back()" class="uk-button uk-button backlink"><span
+            uk-icon="arrow-left"></span> Back</div>
+        </div>
+        <div class="uk-width-expand uk-text-right">
+            <a href="{{ url_for('map') }}" class="uk-button uk-button-secondary"> <span uk-icon="location"></span>&nbsp;&nbsp;&nbsp; Go to
+                map</a>
+            </div>
+        </div>
+
+        <h1>Proposals</h1>
+
+
+
+    {% for proposal in data %}
+    <div class="uk-card uk-margin uk-card-default uk-card-body" uk-scrollspy="cls:uk-animation-fade; delay:200">
+        {% if proposal.status == 'completed' %}
+        <div class="uk-card-badge uk-badge-success uk-label">Completed</div>
+        {% elif proposal.status == 'rejected' %}
+        <div class="uk-card-badge uk-badge-danger uk-label">Rejected</div>
+        {% elif proposal.status == 'pending' %}
+        <div class="uk-card-badge uk-badge-warning uk-label">Pending</div>
+        {% elif proposal.status == 'accepted' %}
+        <div class="uk-card-badge uk-badge-warning uk-label">Accepted</div>
+        {% endif %}
+        <div>
+            <h4 class="uk-margin-medium-top">{{proposal.title}}</h4>
+            <p class="uk-margin-remove uk-text-muted">{{proposal.user_name}}</h3>
+        </div>
+        <div class="uk-grid uk-margin-small">
+            <div><span uk-icon="location"> </span>{{proposal.room}}</div>
+            <div><span uk-icon="tag"></span>{{ proposal.category }}</div>
+            <!-- <div><span uk-icon="bookmark"></span>Hello</div> -->
+        </div>
+        <div class="uk-grid uk-margin-small">
+            <p class="uk-text-muted uk-margin-remove">Created on: {{proposal.timestamp}}</p>
+        </div>
+        <div uk-grid>
+            <div class="uk-width-expand {% if proposal.has_upvoted %}
+             heart-fill  
+            {% endif %} ">
+                <span uk-icon="heart"></span> {{proposal.upvotes}}
+            </div>
+            <div class="uk-expand uk-text-right">
+                <a href="{{ url_for('visualizeIssue', issue_id=proposal.issue_id) }}"
+                    class="uk-button uk-button-text">Open issue</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% include 'template/body-footer.html' %}
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>Statistics</title>
+    {% include 'template/head.html' %}
+</head>
+
+<body>
+    {% include 'template/body-header.html' %}
+
+    <div uk-grid class="uk-margin">
+        <div class="uk-width-expand uk-text-left">
+            <div onclick="history.back()" class="uk-button uk-button backlink"><span uk-icon="arrow-left"></span> Back
+            </div>
+        </div>
+    </div>
+    <h1>Statistics</h1>
+
+    {% set mock_scores = [("John Doe", 120), ("Jane Doe", 117), ("John Smith", 115)] %}
+
+    <div class="uk-card uk-card-default uk-card-small uk-card-body uk-margin">
+        <h4>🚀 Top community contributors</h4>
+        <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Community member</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name, score in mock_scores %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% set mock_scores_faculty = [("Thomas Bennet", 120), ("François Cluet", 117), ("Robert Orsi", 115)] %}
+    <div class="uk-card uk-card-default uk-card-small uk-card-body uk-margin">
+        <h4>👩‍💻 Top contributors in your faculty</h4>
+        <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Community member</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name, score in mock_scores_faculty %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <style>
+        .card-stat {
+            /*font-size: 130%;*/
+        }
+    </style>
+
+    <div uk-scrollspy="cls:uk-animation-fade; delay:200" class="uk-margin uk-card uk-card-body uk-card-default uk-text-center">
+        <span class="card-stat uk-h1 ">75</span>
+        <p class="uk-text-lead">proposals by members of the community</p>
+    </div>
+
+    <div uk-scrollspy="cls:uk-animation-fade; delay:200" class="uk-margin uk-card uk-card-body uk-card-default uk-text-center">
+        <span class="card-stat uk-h1 uk-text-success">85%</span>
+        <p class="uk-text-lead">of proposals are evaluated by EPFL within 15 days</p>
+    </div>
+
+    <div uk-scrollspy="cls:uk-animation-fade; delay:200"  class="uk-margin uk-card  uk-card-body uk-card-default uk-text-center">
+        <span class="card-stat uk-h1" style="color: #ff0000">428</span>
+        <p class="uk-text-lead">total upvotes on proposals</p>
+    </div>
+
+    <div uk-scrollspy="cls:uk-animation-fade; delay:200" class="uk-margin uk-card uk-card-body uk-card-default uk-text-center">
+        <span class="card-stat uk-h1 uk-text-success">15</span>
+        <p class="uk-text-lead">proposals implemented by EPFL</p>
+    </div>
+
+    <div uk-scrollspy="cls:uk-animation-fade; delay:200" class="uk-margin uk-card uk-card-body uk-card-default uk-card-small">
+        <h4>Issues posted by faculty</h4>
+        <iframe src="{{url_for('static', filename='/lib/graphs/graphs-1.html')}}" width="80%" height="300px" style="margin: 0 auto; display:block"></iframe>
+    </div>
+
+    <div uk-scrollspy="cls:uk-animation-fade; delay:200" class="uk-margin uk-card uk-card-body uk-card-default uk-card-small">
+        <h4>Upvotes received by faculty</h4>
+        <iframe src="{{url_for('static', filename='/lib/graphs/graphs-2.html')}}" width="80%" height="300px" style="margin: 0 auto; display:block"></iframe>
+    </div>
+
+    <div uk-scrollspy="cls:uk-animation-fade; delay:200" class="uk-margin uk-card uk-card-body uk-card-default">
+        <h4>Accepted proposals by EPFL</h4>
+        <iframe src="{{url_for('static', filename='/lib/graphs/graphs-3.html')}}" width="100%" height="300px" style="margin: 0 auto; display:block"></iframe>
+    </div>
+
+    
+
+
+    {% include 'template/body-footer.html' %}
+</body>
+
+</html>
