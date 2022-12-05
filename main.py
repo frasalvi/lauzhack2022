@@ -24,13 +24,21 @@ import psycopg2.extras
 # import numpy as np
 # import pandas as pd
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+POSTGRESHOST=os.getenv("POSTGRESHOST")
+POSTGRESPWD=os.getenv("POSTGRESPWD")
+
+
 DEFAULT_USER = "Giacomo Orsi"
 
 
-host = HOST
+host = POSTGRESHOST
 dbname = 'postgres'
 user = 'postgres'
-pwd = PWD
+pwd = POSTGRESPWD
 port = 5432
 conn = psycopg2.connect("host='{}' port={} dbname='{}' user={} password={}".format(host, port, dbname, user, pwd))
 
