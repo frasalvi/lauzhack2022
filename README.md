@@ -4,8 +4,7 @@
 We believe 12K brains can do better than 4. We built a collaborative platform in which the whole EPFL community is empowered to suggest improvements for the sustainability of the campus. Enjoy!
 
 ## Demo access
-Visit our [demo webpage](http://10.90.38.15:5001/) to try our project.
-It has to be accessed from the EPFL network. Otherwise, take a look at some screenshots of the app in our [Devpost](https://devpost.com/software/polyimprove) submission.
+Visit our [demo webpage](https://ciaocomevasono.ew.r.appspot.com/) to try our project. Otherwise, take a look at some screenshots of the app in our [Devpost](https://devpost.com/software/polyimprove) submission.
 
 ## Inspiration
 What's the biggest asset that EPFL has? People: students, faculty, PhDs, Staff. What do we want to solve? Reducing waste and making the campus more sustainable. 
