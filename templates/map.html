@@ -85,7 +85,7 @@
             draw = false;
             {% endif %}
 
-            {% if row["longitude"] %}
+            {% if row["longitude"]>0 %}
             if (draw) {
                 var marker = L.marker([{{ row["latitude"] }}, {{ row["longitude"] }}], { icon: v_icon }).addTo(map);
             marker.bindPopup(`<h4 class='uk-margin-remove'>{{row.title}}</h4><br>
